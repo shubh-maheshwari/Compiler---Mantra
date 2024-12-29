@@ -1,166 +1,172 @@
 <!doctype html>
 
-<title>CodeMirror: Language Modes</title>
+<title>CodeMirror 5</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../doc/docs.css">
+
+<link rel=stylesheet href="lib/codemirror.css">
+<link rel=stylesheet href="doc/docs.css">
+<script src="lib/codemirror.js"></script>
+<script src="mode/xml/xml.js"></script>
+<script src="mode/javascript/javascript.js"></script>
+<script src="mode/css/css.js"></script>
+<script src="mode/htmlmixed/htmlmixed.js"></script>
+<script src="addon/edit/matchbrackets.js"></script>
+
+<script src="doc/activebookmark.js"></script>
+
+<style>
+  .CodeMirror { height: auto; border: 1px solid #ddd; }
+  .CodeMirror-scroll { max-height: 200px; }
+  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+  .banner { background: #ffc; padding: 6px; border-bottom: 2px solid silver; text-align: center }
+</style>
+
+<div class=banner>
+  Note that this is the website for CodeMirror 5. <a href="https://codemirror.net/">Version 6</a> is the current version.
+</div>
 
 <div id=nav>
-  <a href="https://codemirror.net/5"><h1>CodeMirror</h1><img id=logo src="../doc/logo.png"></a>
+  <a href="https://codemirror.net/5"><h1>CodeMirror</h1><img id=logo src="doc/logo.png"></a>
 
   <ul>
-    <li><a href="../index.html">Home</a>
-    <li><a href="../doc/manual.html">Manual</a>
+    <li><a class=active data-default="true" href="#description">Home</a>
+    <li><a href="doc/manual.html">Manual</a>
     <li><a href="https://github.com/codemirror/codemirror5">Code</a>
+    <li><a href="https://codemirror.net/">Version 6</a>
   </ul>
   <ul>
-    <li><a class=active href="#">Language modes</a>
+    <li><a href="#features">Features</a>
+    <li><a href="#community">Community</a>
+    <li><a href="#browsersupport">Browser support</a>
   </ul>
 </div>
 
 <article>
 
-  <h2>Language modes</h2>
+<section id=description class=first>
+  <p><strong>CodeMirror</strong> is a versatile text editor
+  implemented in JavaScript for the browser. It is specialized for
+  editing code, and comes with a number of <a href="mode/index.html">language modes</a> and <a href="doc/manual.html#addons">addons</a>
+  that implement more advanced editing functionality.</p>
 
-  <p>This is a list of every mode in the distribution. Each mode lives
-in a subdirectory of the <code>mode/</code> directory, and typically
-defines a single JavaScript file that implements the mode. Loading
-such file will make the language available to CodeMirror, through
-the <a href="../doc/manual.html#option_mode"><code>mode</code></a>
-option.</p>
+  <p>A rich <a href="doc/manual.html#api">programming API</a> and a
+  CSS <a href="doc/manual.html#styling">theming</a> system are
+  available for customizing CodeMirror to fit your application, and
+  extending it with new functionality.</p>
+</section>
 
-  <div style="-webkit-columns: 100px 2; -moz-columns: 100px 2; columns: 100px 2;">
-    <ul style="margin-top: 0">
-      <li><a href="apl/index.html">APL</a></li>
-      <li><a href="asn.1/index.html">ASN.1</a></li>
-      <li><a href="asterisk/index.html">Asterisk dialplan</a></li>
-      <li><a href="brainfuck/index.html">Brainfuck</a></li>
-      <li><a href="clike/index.html">C, C++, C#</a></li>
-      <li><a href="clike/index.html">Ceylon</a></li>
-      <li><a href="clojure/index.html">Clojure</a></li>
-      <li><a href="css/gss.html">Closure Stylesheets (GSS)</a></li>
-      <li><a href="cmake/index.html">CMake</a></li>
-      <li><a href="cobol/index.html">COBOL</a></li>
-      <li><a href="coffeescript/index.html">CoffeeScript</a></li>
-      <li><a href="commonlisp/index.html">Common Lisp</a></li>
-      <li><a href="crystal/index.html">Crystal</a></li>
-      <li><a href="css/index.html">CSS</a></li>
-      <li><a href="cypher/index.html">Cypher</a></li>
-      <li><a href="python/index.html">Cython</a></li>
-      <li><a href="d/index.html">D</a></li>
-      <li><a href="dart/index.html">Dart</a></li>
-      <li><a href="django/index.html">Django</a> (templating language)</li>
-      <li><a href="dockerfile/index.html">Dockerfile</a></li>
-      <li><a href="diff/index.html">diff</a></li>
-      <li><a href="dtd/index.html">DTD</a></li>
-      <li><a href="dylan/index.html">Dylan</a></li>
-      <li><a href="ebnf/index.html">EBNF</a></li>
-      <li><a href="ecl/index.html">ECL</a></li>
-      <li><a href="eiffel/index.html">Eiffel</a></li>
-      <li><a href="https://github.com/optick/codemirror-mode-elixir">Elixir</a></li>
-      <li><a href="elm/index.html">Elm</a></li>
-      <li><a href="erlang/index.html">Erlang</a></li>
-      <li><a href="factor/index.html">Factor</a></li>
-      <li><a href="fcl/index.html">FCL</a></li>
-      <li><a href="forth/index.html">Forth</a></li>
-      <li><a href="fortran/index.html">Fortran</a></li>
-      <li><a href="mllike/index.html">F#</a></li>
-      <li><a href="gas/index.html">Gas</a> (AT&amp;T-style assembly)</li>
-      <li><a href="gherkin/index.html">Gherkin</a></li>
-      <li><a href="go/index.html">Go</a></li>
-      <li><a href="groovy/index.html">Groovy</a></li>
-      <li><a href="haml/index.html">HAML</a></li>
-      <li><a href="handlebars/index.html">Handlebars</a></li>
-      <li><a href="haskell/index.html">Haskell</a> (<a href="haskell-literate/index.html">Literate</a>)</li>
-      <li><a href="haxe/index.html">Haxe</a></li>
-      <li><a href="htmlembedded/index.html">HTML embedded</a> (JSP, ASP.NET)</li>
-      <li><a href="htmlmixed/index.html">HTML mixed-mode</a></li>
-      <li><a href="http/index.html">HTTP</a></li>
-      <li><a href="idl/index.html">IDL</a></li>
-      <li><a href="clike/index.html">Java</a></li>
-      <li><a href="javascript/index.html">JavaScript</a> (<a href="jsx/index.html">JSX</a>)</li>
-      <li><a href="jinja2/index.html">Jinja2</a></li>
-      <li><a href="julia/index.html">Julia</a></li>
-      <li><a href="clike/index.html">Kotlin</a></li>
-      <li><a href="css/less.html">LESS</a></li>
-      <li><a href="livescript/index.html">LiveScript</a></li>
-      <li><a href="lua/index.html">Lua</a></li>
-      <li><a href="markdown/index.html">Markdown</a> (<a href="gfm/index.html">GitHub-flavour</a>)</li>
-      <li><a href="mathematica/index.html">Mathematica</a></li>
-      <li><a href="mbox/index.html">mbox</a></li>
-      <li><a href="mirc/index.html">mIRC</a></li>
-      <li><a href="modelica/index.html">Modelica</a></li>
-      <li><a href="mscgen/index.html">MscGen</a></li>
-      <li><a href="mumps/index.html">MUMPS</a></li>
-      <li><a href="nginx/index.html">Nginx</a></li>
-      <li><a href="nsis/index.html">NSIS</a></li>
-      <li><a href="ntriples/index.html">N-Triples/N-Quads</a></li>
-      <li><a href="clike/index.html">Objective C</a></li>
-      <li><a href="mllike/index.html">OCaml</a></li>
-      <li><a href="octave/index.html">Octave</a> (MATLAB)</li>
-      <li><a href="oz/index.html">Oz</a></li>
-      <li><a href="pascal/index.html">Pascal</a></li>
-      <li><a href="pegjs/index.html">PEG.js</a></li>
-      <li><a href="perl/index.html">Perl</a></li>
-      <li><a href="asciiarmor/index.html">PGP (ASCII armor)</a></li>
-      <li><a href="php/index.html">PHP</a></li>
-      <li><a href="pig/index.html">Pig Latin</a></li>
-      <li><a href="powershell/index.html">PowerShell</a></li>
-      <li><a href="properties/index.html">Properties files</a></li>
-      <li><a href="protobuf/index.html">ProtoBuf</a></li>
-      <li><a href="pug/index.html">Pug</a></li>
-      <li><a href="puppet/index.html">Puppet</a></li>
-      <li><a href="python/index.html">Python</a></li>
-      <li><a href="q/index.html">Q</a></li>
-      <li><a href="r/index.html">R</a></li>
-      <li><a href="rpm/index.html">RPM</a></li>
-      <li><a href="rst/index.html">reStructuredText</a></li>
-      <li><a href="ruby/index.html">Ruby</a></li>
-      <li><a href="rust/index.html">Rust</a></li>
-      <li><a href="sas/index.html">SAS</a></li>
-      <li><a href="sass/index.html">Sass</a></li>
-      <li><a href="spreadsheet/index.html">Spreadsheet</a></li>
-      <li><a href="clike/scala.html">Scala</a></li>
-      <li><a href="scheme/index.html">Scheme</a></li>
-      <li><a href="css/scss.html">SCSS</a></li>
-      <li><a href="shell/index.html">Shell</a></li>
-      <li><a href="sieve/index.html">Sieve</a></li>
-      <li><a href="slim/index.html">Slim</a></li>
-      <li><a href="smalltalk/index.html">Smalltalk</a></li>
-      <li><a href="smarty/index.html">Smarty</a></li>
-      <li><a href="solr/index.html">Solr</a></li>
-      <li><a href="soy/index.html">Soy</a></li>
-      <li><a href="stylus/index.html">Stylus</a></li>
-      <li><a href="sql/index.html">SQL</a> (several dialects)</li>
-      <li><a href="sparql/index.html">SPARQL</a></li>
-      <li><a href="clike/index.html">Squirrel</a></li>
-      <li><a href="swift/index.html">Swift</a></li>
-      <li><a href="stex/index.html">sTeX, LaTeX</a></li>
-      <li><a href="tcl/index.html">Tcl</a></li>
-      <li><a href="textile/index.html">Textile</a></li>
-      <li><a href="tiddlywiki/index.html">Tiddlywiki</a></li>
-      <li><a href="tiki/index.html">Tiki wiki</a></li>
-      <li><a href="toml/index.html">TOML</a></li>
-      <li><a href="tornado/index.html">Tornado</a> (templating language)</li>
-      <li><a href="troff/index.html">troff</a> (for manpages)</li>
-      <li><a href="ttcn/index.html">TTCN</a></li>
-      <li><a href="ttcn-cfg/index.html">TTCN Configuration</a></li>
-      <li><a href="turtle/index.html">Turtle</a></li>
-      <li><a href="twig/index.html">Twig</a></li>
-      <li><a href="vb/index.html">VB.NET</a></li>
-      <li><a href="vbscript/index.html">VBScript</a></li>
-      <li><a href="velocity/index.html">Velocity</a></li>
-      <li><a href="verilog/index.html">Verilog/SystemVerilog</a></li>
-      <li><a href="vhdl/index.html">VHDL</a></li>
-      <li><a href="vue/index.html">Vue.js app</a></li>
-      <li><a href="webidl/index.html">Web IDL</a></li>
-      <li><a href="wast/index.html">WebAssembly Text Format</a></li>
-      <li><a href="xml/index.html">XML/HTML</a></li>
-      <li><a href="xquery/index.html">XQuery</a></li>
-      <li><a href="yacas/index.html">Yacas</a></li>
-      <li><a href="yaml/index.html">YAML</a></li>
-      <li><a href="yaml-frontmatter/index.html">YAML frontmatter</a></li>
-      <li><a href="z80/index.html">Z80</a></li>
-    </ul>
+<section id=demo>
+  <h2>This is CodeMirror</h2>
+  <form style="position: relative; margin-top: .5em;"><textarea id=demotext>
+<!-- Create a simple CodeMirror instance -->
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="lib/codemirror.js"></script>
+<script>
+  var editor = CodeMirror.fromTextArea(myTextarea, {
+    lineNumbers: true
+  });
+</script></textarea>
+  <select id="demolist" onchange="document.location = this.options[this.selectedIndex].value;">
+    <option value="#">Other demos...</option>
+    <option value="demo/complete.html">Autocompletion</option>
+    <option value="demo/folding.html">Code folding</option>
+    <option value="demo/theme.html">Themes</option>
+    <option value="mode/htmlmixed/index.html">Mixed language modes</option>
+    <option value="demo/bidi.html">Bi-directional text</option>
+    <option value="demo/variableheight.html">Variable font sizes</option>
+    <option value="demo/search.html">Search interface</option>
+    <option value="demo/vim.html">Vim bindings</option>
+    <option value="demo/emacs.html">Emacs bindings</option>
+    <option value="demo/sublime.html">Sublime Text bindings</option>
+    <option value="demo/tern.html">Tern integration</option>
+    <option value="demo/merge.html">Merge/diff interface</option>
+    <option value="demo/fullscreen.html">Full-screen editor</option>
+    <option value="demo/simplescrollbars.html">Custom scrollbars</option>
+  </select></form>
+  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      mode: "text/html",
+      matchBrackets: true
+    });
+  </script>
+
+  <div class=actions>
+    Get the current version: <a href="https://codemirror.net/5/codemirror.zip">5.65.18</a>.<br>
+    You can see the <a href="https://github.com/codemirror/codemirror5" title="GitHub repository">code</a>,<br>
+    read the <a href="doc/releases.html">release notes</a>,<br>
+    or study the <a href="doc/manual.html">user manual</a>.
   </div>
+
+</section>
+
+<section id=features>
+  <h2>Features</h2>
+  <ul>
+    <li>Support for <a href="mode/index.html">over 100 languages</a> out of the box
+    <li>A powerful, <a href="mode/htmlmixed/index.html">composable</a> language mode <a href="doc/manual.html#modeapi">system</a>
+    <li><a href="doc/manual.html#addon_show-hint">Autocompletion</a> (<a href="demo/xmlcomplete.html">XML</a>)
+    <li><a href="doc/manual.html#addon_foldcode">Code folding</a>
+    <li><a href="doc/manual.html#option_extraKeys">Configurable</a> keybindings
+    <li><a href="demo/vim.html">Vim</a>, <a href="demo/emacs.html">Emacs</a>, and <a href="demo/sublime.html">Sublime Text</a> bindings
+    <li><a href="doc/manual.html#addon_search">Search and replace</a> interface
+    <li><a href="doc/manual.html#addon_matchbrackets">Bracket</a> and <a href="doc/manual.html#addon_matchtags">tag</a> matching
+    <li>Support for <a href="demo/buffers.html">split views</a>
+    <li><a href="doc/manual.html#addon_lint">Linter integration</a>
+    <li><a href="demo/variableheight.html">Mixing font sizes and styles</a>
+    <li><a href="demo/theme.html">Various themes</a>
+    <li>Able to <a href="demo/resize.html">resize to fit content</a>
+    <li><a href="doc/manual.html#mark_replacedWith">Inline</a> and <a href="doc/manual.html#addLineWidget">block</a> widgets
+    <li>Programmable <a href="demo/marker.html">gutters</a>
+    <li>Making ranges of text <a href="doc/manual.html#markText">styled, read-only, or atomic</a>
+    <li><a href="demo/bidi.html">Bi-directional text</a> support
+    <li>Many other <a href="doc/manual.html#api">methods</a> and <a href="doc/manual.html#addons">addons</a>...
+  </ul>
+</section>
+
+<section id=community>
+  <h2>Community</h2>
+
+  <p>CodeMirror is an open-source project shared under
+  an <a href="LICENSE">MIT license</a>.</p>
+
+  <p>Development and bug tracking happens
+  on <a href="https://github.com/codemirror/CodeMirror/">github</a>
+  (<a href="http://marijnhaverbeke.nl/git/codemirror">alternate git
+  repository</a>).
+  Please <a href="https://codemirror.net/5/doc/reporting.html">read these
+  pointers</a> before submitting a bug. Use pull requests to submit
+  patches. All contributions must be released under the same MIT
+  license that CodeMirror uses.</p>
+
+  <p>Discussion around the project is done on
+  a <a href="https://discuss.codemirror.net">discussion forum</a>.
+  Announcements related to the project, such as new versions, are
+  posted in the
+  forum's <a href="https://discuss.codemirror.net/c/announce">"announce"</a>
+  category. If needed, you can
+  contact <a href="mailto:marijn@haverbeke.berlin">the maintainer</a>
+  directly. We aim to be an inclusive, welcoming community. To make
+  that explicit, we have
+  a <a href="http://contributor-covenant.org/version/1/1/0/">code of
+  conduct</a> that applies to communication around the project.</p>
+</section>
+
+<section id=browsersupport>
+  <h2>Browser support</h2>
+  <p>The <em>desktop</em> versions of the following browsers,
+  in <em>standards mode</em> (HTML5 <code>&lt;!doctype html></code>
+  recommended) are supported:</p>
+  <table style="margin-bottom: 1em">
+    <tr><th>Firefox</th><td>version 4 and up</td></tr>
+    <tr><th>Chrome</th><td>any version</td></tr>
+    <tr><th>Safari</th><td>version 5.2 and up</td></tr>
+    <tr><th style="padding-right: 1em;">Internet Explorer/Edge</th><td>version 8 and up</td></tr>
+    <tr><th>Opera</th><td>version 9 and up</td></tr>
+  </table>
+  <p>Support for modern mobile browsers is experimental. Recent
+  versions of the iOS browser and Chrome on Android should work
+  pretty well.</p>
+</section>
 
 </article>
